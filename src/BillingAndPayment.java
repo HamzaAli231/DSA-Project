@@ -1,7 +1,26 @@
 package src;
-
+import java.util.Scanner;
 public class BillingAndPayment {
-        public void processBillingAndPayment() {
-        System.out.println("Billing Management selected.");
-    }
+
+    public void processBillingAndPayment() {
+       Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Billing ID: ");
+        int billingId = sc.nextInt();
+        System.out.print("Enter Customer ID: ");
+        int customerId = sc.nextInt();
+        System.out.print("Enter Hourly Rate: ");
+        double  hourlyRate = sc.nextDouble();
+        System.out.print("Enter Hours Used: ");
+        double hour = sc.nextDouble();
+        double totalAmount = hourlyRate * hour;
+        System.out.println("Total Amount to be Paid: " + totalAmount);
+
+        Receipt receipt = new Receipt(billingId, customerId, hourlyRate, hour, totalAmount);
+         System.out.println("Payment processed successfully for Billing ID: " + billingId );
+    System.out.println("customerId: " + customerId );
+    System.out.println("Hourly Rate: " + hourlyRate );
+    System.out.println("Hours Used: " + hour );
+    System.out.println("Total Amount: " + totalAmount );    
+    
 }
+}        
