@@ -6,6 +6,8 @@ public class BillingAndPayment {
         double hourlyRate;
         double hour;
         double totalAmount;
+        BillingAndPayment[] bills = new BillingAndPayment[10];
+        int count = 0;
 
     public void Receipt(int billingId, int customerId, double hourlyRate, double hour, double totalAmount) {
         this.billingId = billingId;
@@ -32,6 +34,8 @@ public class BillingAndPayment {
         System.out.println("Total Amount to be Paid: " + totalAmount);
 
         BillingAndPayment receipt = new BillingAndPayment();
+        bills[count] = receipt;
+        count++;
 
         receipt.Receipt(billingId, customerId, hourlyRate, hour, totalAmount);
         System.out.println("Payment processed successfully for Billing ID: " + billingId );
@@ -39,6 +43,7 @@ public class BillingAndPayment {
         System.out.println("Hourly Rate: " + hourlyRate );
         System.out.println("Hours Used: " + hour );
         System.out.println("Total Amount: " + totalAmount );    
+        System.out.println("Total Billing Records: " + count);
     
 }
 }        
