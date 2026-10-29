@@ -46,4 +46,19 @@ public class BillingAndPayment {
         System.out.println("Total Billing Records: " + count);
     
 }
+public void sortBillsByTotalAmount() {
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = 0; j < count - i - 1; j++) {
+            if (bills[j].totalAmount > bills[j + 1].totalAmount) {
+                BillingAndPayment temp = bills[j];
+                bills[j] = bills[j + 1];
+                bills[j + 1] = temp;
+            }
+        }
+    }
+    System.out.println("Bills sorted by Total Amount:");
+    for (int i = 0; i < count; i++) {
+        System.out.println("Billing ID: " + bills[i].billingId + ", Customer ID: " + bills[i].customerId + ", Total Amount: " + bills[i].totalAmount);
+    }
 }        
+}
