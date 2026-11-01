@@ -61,4 +61,27 @@ public void sortBillsByTotalAmount() {
         System.out.println("Billing ID: " + bills[i].billingId + ", Customer ID: " + bills[i].customerId + ", Total Amount: " + bills[i].totalAmount);
     }
 }        
+public void deleteBillById() {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter Billing ID to delete: ");
+    int billingId = sc.nextInt();
+    int index = -1;
+    for (int i = 0; i < count; i++) {
+        if (bills[i].billingId == billingId) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index != -1) {
+        for (int i = index; i < count - 1; i++) {
+            bills[i] = bills[i + 1];
+        }
+        bills[count - 1] = null;
+        count--;
+        System.out.println("Bill with Billing ID: " + billingId + " has been deleted.");
+    } else {
+        System.out.println("Bill with Billing ID: " + billingId + " not found.");
+    }
+}
 }
