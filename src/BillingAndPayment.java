@@ -64,11 +64,8 @@ public class BillingAndPayment {
             System.out.println("Billing ID: " + bills[i].billingId + ", Customer ID: " + bills[i].customerId + ", Total Amount: " + bills[i].totalAmount);
         }
     }
-    System.out.println("Bills sorted by Total Amount:");
-    for (int i = 0; i < count; i++) {
-        System.out.println("Billing ID: " + bills[i].billingId + ", Customer ID: " + bills[i].customerId + ", Total Amount: " + bills[i].totalAmount);
-    }
-}        
+   
+    
 public void deleteBillById() {
     Scanner sc = new Scanner(System.in);
     System.out.print("Enter Billing ID to delete: ");
