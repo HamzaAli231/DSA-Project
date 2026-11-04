@@ -89,4 +89,25 @@ public void deleteBillById() {
         System.out.println("Bill with Billing ID: " + billingId + " not found.");
     }
 }
+public void  displayPaymentStatus(){
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter Billing ID to check payment status: ");
+    int billingId = sc.nextInt();
+    int index = -1;
+    for (int i = 0; i < count; i++) {
+        if (bills[i].billingId == billingId) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index != -1) {
+        System.out.println("Payment Status for Billing ID: " + billingId);
+        System.out.println("Customer ID: " + bills[index].customerId);
+        System.out.println("Total Amount: " + bills[index].totalAmount);
+        System.out.println("Payment Status: Paid");
+    } else {
+        System.out.println("Bill with Billing ID: " + billingId + " not found.");
+    }
+}
 }
