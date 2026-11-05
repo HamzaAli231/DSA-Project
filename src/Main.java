@@ -21,7 +21,7 @@ public class Main {
                 pcManagement.managePCs();
             }else if (choice == 3){
                     BookingManagement bookingManagement = new BookingManagement();
-                    bookingManagement.createBooking();
+                    bookingManagement.BookingMenu();
             }else if (choice == 4){
                     BillingAndPayment billingAndPayment = new BillingAndPayment();
                     billingAndPayment.processBillingAndPayment();

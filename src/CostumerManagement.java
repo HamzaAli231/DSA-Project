@@ -5,7 +5,7 @@ public class CostumerManagement {
     int CostumerID;
     String CostumerPhone;
     int count = 0;
-    CostumerManagement[] customers = new CostumerManagement[100];
+    CostumerManagement[] customers = new CostumerManagement[1000];
 
 public void manageCustomers() {
     Scanner sc = new Scanner(System.in);
@@ -31,7 +31,7 @@ public void manageCustomers() {
             DisplayCustumers();
         }
         else if (choice == 4) {
-            System.out.println("Returning to Main Menu...");
+            System.out.println("Return to Main Menu.");
         }
         else {
             System.out.println("Invalid choice.");
@@ -39,12 +39,8 @@ public void manageCustomers() {
 
     } while (choice != 4);
     }
-    
 
-    public CostumerManagement() {
-    }
-
-    public CostumerManagement(String CostumerName, int CostumerID, String CostumerPhone) {
+    public void setCostumerManagement(String CostumerName, int CostumerID, String CostumerPhone) {
         this.CostumerName = CostumerName;
         this.CostumerID = CostumerID;
         this.CostumerPhone = CostumerPhone;
@@ -66,7 +62,8 @@ public void manageCustomers() {
         System.out.print("Enter customer Phone Number: ");
         String CostumerPhone = sc.nextLine();
 
-        CostumerManagement set_costumer = new CostumerManagement(CostumerName, CostumerID, CostumerPhone);
+        CostumerManagement set_costumer = new CostumerManagement();
+        set_costumer.setCostumerManagement(CostumerName, CostumerID, CostumerPhone);
         customers[count] = set_costumer;
         count++;
 
@@ -74,7 +71,6 @@ public void manageCustomers() {
         System.out.println("Costumer ID: " + CostumerID);
         System.out.println("Costumer Phone: " + CostumerPhone);
     }
-
 
     boolean found = false;
     public void searchCustomers() {
@@ -106,10 +102,7 @@ public void manageCustomers() {
         if (!found) {
             System.out.println("Customer not found. Invalid ID");
         }
-
     }
-
-
     public void DisplayCustumers(){
         System.out.println("Customer List:");
         for(int i = 0; i < count; i++){
