@@ -16,7 +16,6 @@ public class BillingAndPayment {
         this.hour = hour;
         this.totalAmount = totalAmount;
     }
-
     public void processBillingAndPayment() {
         if (count >= bills.length) {
             System.out.println("Maximum billing records reached. Cannot process more.");
@@ -64,7 +63,6 @@ public class BillingAndPayment {
             System.out.println("Billing ID: " + bills[i].billingId + ", Customer ID: " + bills[i].customerId + ", Total Amount: " + bills[i].totalAmount);
         }
     }
-
     public void deleteBillById() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Billing ID to delete: ");
@@ -87,7 +85,7 @@ public class BillingAndPayment {
             System.out.println("Bill with Billing ID: " + billingId + " not found.");
         }
     }
-    public void  displayPaymentStatus(){
+    public void  displayPaymentStatus() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Billing ID to check payment status: ");
         int billingId = sc.nextInt();
