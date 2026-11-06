@@ -29,7 +29,7 @@ public class Main {
 
             } else if (choice == 3) {
                 BookingManagement bookingManagement = new BookingManagement();
-                bookingManagement.createBooking();
+                bookingManagement.BookingMenu();
 
             } else if (choice == 4) {
 
@@ -37,7 +37,7 @@ public class Main {
                 int billingChoice;
 
                 do {
-                    System.out.println("\n===== BILLING AND PAYMENT MENU =====");
+                    System.out.println(" BILLING AND PAYMENT MENU ");
                     System.out.println("1. Process Billing and Payment");
                     System.out.println("2. Sort Bills by Total Amount");
                     System.out.println("3. Delete Bill by ID");

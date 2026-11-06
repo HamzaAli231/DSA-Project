@@ -7,14 +7,39 @@ public class BookingManagement {
     int hours;
     boolean status = true;
     int count = 0;
-    BookingManagement[] bookings = new BookingManagement[10];
+    BookingManagement[] bookings = new BookingManagement[1000];
 
-    public void setBookingDetails(int bookingId, int customerId, int pcId, int hours, boolean status) {
+    public void setBookingDetails(int bookingId, int customerId, int pcId, int hours) {
         this.bookingId = bookingId;
         this.customerId = customerId;
         this.pcId = pcId;
         this.hours = hours;
-        this.status = status;
+    }
+    public void BookingMenu() {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("Booking Management:");
+            System.out.println("1. Create Booking");
+            System.out.println("2. Search Booking");
+            System.out.println("3. Display Bookings");
+            System.out.println("4. Return to Main Menu");
+            System.out.print("Enter your choice: ");
+
+            choice = sc.nextInt();
+
+            if (choice == 1) {
+                createBooking();
+            } else if (choice == 2) {
+                searchBooking();
+            } else if (choice == 3) {
+                displayBookings();
+            } else if (choice == 4) {
+                System.out.println("Return to Main Menu.");
+            } else {
+                System.out.println("Invalid choice.");
+            }
+        } while (choice != 4);
     }
     public void createBooking() {
         if (count >= bookings.length) {
@@ -33,12 +58,10 @@ public class BookingManagement {
 
         System.out.print("Enter Hours: ");
         int hours = sc.nextInt();
-
-        Boolean status = true;
         
         BookingManagement booking = new BookingManagement();
 
-        booking.setBookingDetails(bookingId, customerId, pcId, hours, status);
+        booking.setBookingDetails(bookingId, customerId, pcId, hours);
         System.out.println("Booking created successfully for Booking ID: " + bookingId);
         bookings[count] = booking;
         count++;
@@ -57,13 +80,21 @@ public class BookingManagement {
                 System.out.println("Customer ID: " + bookings[i].customerId);
                 System.out.println("PC ID: " + bookings[i].pcId);
                 System.out.println("Hours: " + bookings[i].hours);
-                System.out.println("Status: " + (bookings[i].status));
                 found = true;
                 break;
             }
         }
         if (!found) {
             System.out.println("Booking not found.");
+        }
+    }
+    public void displayBookings() {
+        System.out.println("Booking List:");
+        for (int i = 0; i < count; i++) {
+            System.out.println("Booking ID: " + bookings[i].bookingId);
+            System.out.println("Customer ID: " + bookings[i].customerId);
+            System.out.println("PC ID: " + bookings[i].pcId);
+            System.out.println("Hours: " + bookings[i].hours);
         }
     }
 }
